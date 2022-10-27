@@ -1,3 +1,4 @@
+import {Link} from "react-router-dom";
 import "./index.css";
 function Start(){
     return <>
@@ -14,7 +15,7 @@ function Start(){
                 In the last of the test, Submit the form.
             </li>
           </ol>
-          <button className="btn btn-active">Start</button>
+          <Link to="/quiz" className="btn-a btn-active center">Start</Link>
       </div>
     </>
 }

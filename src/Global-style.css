@@ -35,6 +35,7 @@ button{
     background-color: var(--tr);
 }
 li{list-style-type: none;}
+a{text-decoration: none;}
 a[role='button']{
     font-size: medium;margin: 0%;height: 5%;
     color: var(--text-color-3);
@@ -43,6 +44,7 @@ a[role='button']{
 }
 a[role='button']:hover{
     color: var(--text-color-1);transition: 0.45s ease-in;
+    cursor: pointer;
 }
 /* classes */
 .btn{
@@ -52,3 +54,9 @@ a[role='button']:hover{
 }
 .btn-active{background-color: rgb(133, 207, 69);}
 .btn-reverse{float: left;background-color: var(--text-color-3);}
+
+.btn-a{
+    width: 110px;height: 35px;
+    border-radius: 16px; font-size: x-large;
+    color: var(--text-color-1);
+}

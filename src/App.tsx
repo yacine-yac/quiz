@@ -1,4 +1,5 @@
 import React from 'react'; 
+import {Routes,Route} from 'react-router-dom';
 import './App.css';
 import './Global-style.css'
 import Component from './components';
@@ -10,10 +11,12 @@ function App() {
   <>
     <header></header>
     <div className="App">
-         {/* <Component /> */}
-         {/* <Start /> */}
+      <Routes>
+        <Route path="/" element={<Start />}/> 
+        <Route path="/quiz" element={<Component />}/> 
+      </Routes> 
          {/* <Demo /> */}
-         <Result />
+         {/* <Result /> */}
     </div>
   </>
   );
