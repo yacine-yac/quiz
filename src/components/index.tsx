@@ -4,6 +4,7 @@ function Component(){
     return <>
        <div className='box-1 center-block'>
          <div className="box-1-1 center-block">
+            <a role="button" href='#' >Get Back</a> 
             <div className="box-head">
                 <h1>Qestion <span>1/15</span></h1> 
             </div>

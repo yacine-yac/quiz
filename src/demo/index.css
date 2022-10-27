@@ -1,0 +1,21 @@
+.box-1{
+    width: 90vw;height: 85%;
+    
+}
+.box-1-1{
+    width: 75%;height: 93%;
+    padding: 1%;
+    border: 2px solid white;
+    background-color: var(--second-color);
+}
+.box-3{
+    width: 60%;height: 45%; 
+    flex-direction: row;
+}
+.box-3 h1{
+    width: 100%;
+    text-align: center;
+    font-size: 1.2rem;
+    font-family: var(--style-text);
+    color: var(--text-color-2);
+}

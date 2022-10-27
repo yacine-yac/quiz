@@ -3,17 +3,19 @@
     
 }
 .box-1-1{
-    width: 75%;height: 100%;
+    width: 75%;height: 93%;
+    padding: 1%;
     border: 2px solid white;
     background-color: var(--second-color);
 }
 
 .box-head{
-   width: 100%;
-   height: 15%;
+   width: 100%; 
+   height: 12%;margin-bottom: 5px;
 }
 .box-head h1{
     text-align: center;color: var(--text-color-2);
+    font-size: 1.5rem;margin: 0%;
 }
 .box-head h1 span{color:var(--text-color-3);font-size: 0.75em;}
 
@@ -38,8 +40,9 @@
 }
 .box-body ul li{
     color: var(--text-color-1);
-    width: 60%;height: 35px; 
+    width: 60%;height: 30px; 
     /* background-color: rgb(56, 69, 80); */
+    margin-top: 15px;
     display: flex;
     cursor: pointer;
 }
