@@ -17,9 +17,28 @@
     align-items: center;
     justify-content: center; 
 }
+.center-h{
+    display: flex;   
+    justify-content: center; 
+}
 /* .direction-r-t{
     left: 0;right: 0;margin: auto;margin-top: 10px; margin-right: 10px;
 } */
 .center-block{
     left: 0;right: 0;bottom: 0;top: 0;margin: auto;
 }
+
+/* default Tags*/
+html{font-size: 28px;}
+button{
+    border: 0px;outline: none;margin: 5px;cursor: pointer;
+    background-color: var(--tr);
+}
+
+/* classes */
+.btn{
+    width: 110px;height: 32px;border-radius: 16px;
+    float: right;
+    color: var(--text-color-1);
+}
+.btn-active{background-color: rgb(133, 207, 69);}

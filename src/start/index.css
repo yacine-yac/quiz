@@ -1,0 +1,17 @@
+.box-2{
+    border: 2px solid var(--text-color-1);
+    width: 80%;height: 75%;
+    flex-direction: column;
+}
+.box-2 h1{
+    font-size: 1.6rem;
+    font-family: var(--style-text);
+    color: var(--text-color-1);margin-bottom: 10px;
+}
+.box-2 ol{
+    width: 60%;height: 35%; 
+}
+.box-2 li{
+    font-size: 0.8rem;
+    color:var(--text-color-2);
+}
