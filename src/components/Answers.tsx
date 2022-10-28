@@ -1,7 +1,6 @@
-import { stat } from "fs";
-
-type T_answers={answer:string,value:number,status:boolean,type?:string}
-function Answers({answer,value,status,type="radio"}:T_answers){
+ 
+type T_answers={propsition:string,value:number,status:boolean,type?:string}
+function Answers({propsition,value,status,type="radio"}:T_answers){
     const ordonne: string[]=["A","B","C","D","E"]; 
    return  <>
                     <li>
@@ -11,7 +10,7 @@ function Answers({answer,value,status,type="radio"}:T_answers){
                            value={value} 
                            defaultChecked={status ? true:false} 
                            type={type} />
-                          {answer}
+                          {propsition}
                        </label> 
                     </li>
    </>

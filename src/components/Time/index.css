@@ -6,10 +6,11 @@
      
      margin-top: 10px;margin-right: 10px;  
 }
-.box-time p{ 
+.box-time .p-time{ 
     /* border: 1px solid red; */
     height:35%; 
-    color: var(--time-text);  
+    color: var(--time-text) ;  
     font-family: var(--time-style);
     font-size: xx-large;
 }
+.alert-time{color: red !important; border-color: red;}

@@ -1,14 +1,15 @@
-import { stat } from "fs";
-import { useCallback, useEffect, useState } from "react";
+ 
+ 
+import {  useEffect, useState,memo } from "react";
 import {time} from "./configTime";
 import './index.css';
 function Time(){
     const _formater=(r:number):string=>{
       const countMinut=Math.floor(r/60);
       const countSecond=Math.floor(r%60);
-      return `${countMinut>0 ? countMinut >9? countMinut : "0"+countMinut : "00"}:${countSecond>0  ? countSecond>9 ? countMinut : "0"+countSecond : "00" }`;
+      return `${countMinut>0 ? countMinut >9? countMinut : "0"+countMinut : "00"}:${countSecond>0  ? countSecond>9 ? countSecond : "0"+countSecond : "00" }`;
     };
-    const [state,setState]=useState<number>(time);//console.log(state,'rrrrr');
+    const [state,setState]=useState<number>(time);  
     
     useEffect(()=>{
       const rf= setInterval(()=>{
@@ -16,11 +17,12 @@ function Time(){
         
       },1000)
       state==0 && clearInterval(rf);
-    },[]); 
+       return ()=> clearInterval(rf);
+    },[state]); 
     return <>
        <div className="box-time direction-r-t center">
-         <p>{_formater(state)}</p>
+         <p className={`p-time ${(state<5 && state!==0) ? "alert-time" :""}`}  >{_formater(state)}</p>
        </div>
     </>
 }
-export default Time;
+export default memo(Time);
