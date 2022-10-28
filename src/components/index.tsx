@@ -1,6 +1,10 @@
 import Time from './Time';
 import './index.css';
+import Answers from './Answers';
+import { useState } from 'react';
 function Component(){
+    const data=[{Answer:"javascript is compiled language in web Browser"},{Answer:"check the scope of variable"},{Answer:" Angular is not programming language "},{Answer:"   you should choice your framework"}]
+    const [question,setQuestion]=useState({});
     return <>
        <div className='box-1 center-block'>
          <div className="box-1-1 center-block">
@@ -11,34 +15,7 @@ function Component(){
             <div className="box-body">
                 <h2>How to explain the special things like whatever in my manner suit now ?</h2>
                 <ul>
-                    <li>
-                       <i>A</i>
-                       <label htmlFor='ts1'>
-                          <input id="ts1" type="checkbox" />
-                           javascript is compiled language in web Browser
-                       </label> 
-                    </li> 
-                    <li>
-                       <i>A</i>
-                       <label htmlFor='ts1'>
-                          <input id="ts1" type="checkbox" />
-                          check the scope of variable 
-                       </label> 
-                    </li>
-                    <li>
-                       <i>A</i>
-                       <label htmlFor='ts1'>
-                          <input id="ts1" type="checkbox" />
-                          Angular is not programming language 
-                       </label> 
-                    </li>
-                    <li>
-                       <i>A</i>
-                       <label htmlFor='ts1'>
-                          <input id="ts1" type="checkbox" />
-                          you should choice your framework
-                       </label> 
-                    </li> 
+                  {data.map((x,y)=><Answers key={y} answer={x.Answer} value={y} status={true} />)}
                 </ul>
             </div>
             <div className="box-footer">

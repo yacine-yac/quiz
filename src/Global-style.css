@@ -10,6 +10,7 @@
     --text-color-1:white;
     --text-color-2:rgba(255, 255, 255, 0.644);
     --text-color-3:rgba(213, 213, 213, 0.644);
+    --text-active:rgb(62, 64, 68);
     --style-text:sans-serif;
 }
 .center{
