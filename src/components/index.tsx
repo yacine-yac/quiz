@@ -1,66 +1,51 @@
 import Time from './Time';
 import './index.css';
 import Answers from './Answers';
-import { T_proposition,button_event, T_handleAnswer,I_multiAnswers, T_reducer } from './type';
-import { useEffect, useReducer, useState } from 'react';  
-import QuizButton from './quizButton';
-import { MultiAnswers } from './modelAnswers'; 
+import { T_proposition,button_event,   } from './type';
+import { memo, useEffect, useState } from 'react';  
+import QuizButton from './quizButton'; 
+import {proposition} from './propositionModel';
 function Component(){
-    const reducer:T_reducer=(state,action)=>{
-          switch(action.type){
-                case "setStatus": {
-          const {boxOrder=0,status=false}= action.payload?.setter ?? {} as {status:boolean,boxOrder:number};
-                    
-                       let current=state; 
-                   current[counter][boxOrder]={...current[counter][boxOrder],status} ;
-                  return  [...current];
-                };
-               case "add":{return action.payload.data ?? [] as T_proposition[][]}
-               default : return state;
-          }
-    }
     const [counter,setCounter]=useState(0);
-    const [propositions,setProposition]=useReducer(reducer,[] as Array<T_proposition[]>);
     const [questions,setQuestion]=useState<Array<string>>([]);
-    const [currentPropisition,setCurrentProposition]=useState<T_proposition[] | null>(null);
-    const [button_state,setButtonState]=useState<boolean>(false);
-    let submitAnswers:I_multiAnswers[]=[];  
+    const [currentPropisition,setCurrentProposition]=useState<T_proposition[] >([]); 
     useEffect(()=>{  
            fetch('http://localhost/qcm/')
                 .then(response=>{
-                    response.json().then((dataRes)=>{
-                         setProposition({type:"add",payload:{data:dataRes.proposition}});
-                         setCurrentProposition(dataRes.proposition[0]);
+                    response.json().then((dataRes)=>{ 
+                         proposition.setAll(dataRes.proposition);
+                         setCurrentProposition(proposition.get(0));
                          setQuestion(dataRes.question);
                     }).catch(err=>console.log(err));
             })
            .catch(error=>{console.log(error)});
-    },[]);
+    },[]); console.log(proposition,"eee");
     const increament:button_event=()=>{
       /** check counter by increament +2 because the counter start from 0 
        *  //and the first question is always selected before increament the counter
        */
        setCounter(counter+1);  
-       counter < propositions.length-1 && setCurrentProposition(propositions[counter+1]); 
-       counter+2==propositions.length &&  setButtonState(true);
-       (counter+2<propositions.length &&  button_state===true) && setButtonState(false);  
-    };
+       counter < proposition.get(counter).length-1 && setCurrentProposition(proposition.get(counter+1)); 
+     };
     const decreament=():void=>{
-       counter >0 &&   (setCounter(counter-1),setCurrentProposition(propositions[counter-1]));
-       (counter>0 && button_state===true) && setButtonState(false);
+      if( counter >0){ 
+         setCounter(counter-1);
+         setCurrentProposition(proposition.get(counter-1));
+      }
     }
-    let questionAnswer= new MultiAnswers(counter);
-    submitAnswers.push(questionAnswer);
-    console.log(currentPropisition);
-    const handleAnswer=(e:number):void=>{
-       
-    } 
+    const handleProposition=(index:number,status:boolean)=>{
+          proposition.setStatus(index,counter);
+          setCurrentProposition(prev=>{
+             prev[index]={...prev[index],status}
+             return [...prev];
+          });
+    }
     return <>
        <div className='box-1 center-block'>
          <div className="box-1-1 center-block">
             <a role="button" href='#' >Get Back</a> 
             <div className="box-head">
-                <h1>Qestion <span>{counter+1}/{propositions.length}</span></h1> 
+                <h1>Qestion <span>{counter+1}/{proposition.length}</span></h1> 
             </div>
             <div className="box-body">
                 <h2>{questions.length> 0 && questions[counter]}</h2>
@@ -71,15 +56,14 @@ function Component(){
                         <Answers  
                               propsition={x}
                               questionOrder={counter}  
-                              order={y} key={y}
-                              handleAnswers={handleAnswer} 
-                              setProposition={setProposition}
+                              order={y} key={y} 
+                              handleProposition={handleProposition}
                         />)
                    }
                 </ul>
             </div>
             <div className="box-footer">
-              { button_state 
+              { counter==proposition.length-1 
                 ?  <button className='btn btn-submit' type='button'>Submit</button>
                 :  <QuizButton   increament={increament}/>
               }
@@ -90,4 +74,4 @@ function Component(){
        <Time />
     </>
 }
-export default Component;
+export default memo(Component);

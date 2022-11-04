@@ -17,20 +17,6 @@ export interface I_multiAnswers{
 }
 
 
-
-export type T_reducer = (
-    state: Array<T_proposition[]>,
-    action:{
-        type:'setStatus' | 'add',
-        payload:{
-             data?: Array<T_proposition[]>,
-             setter?:{
-                boxOrder:number,
-                status:boolean,
-             }
-        }
-    } 
-)  => Array<T_proposition[]>;
  
  
  
