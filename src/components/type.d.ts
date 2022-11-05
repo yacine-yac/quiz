@@ -5,6 +5,7 @@ export type T_proposition={
     status: boolean 
 };
 
+type T_elements={question:string,proposition:T_proposition[]};
 export type button_event=(e:React.MouseEvent<HTMLButtonElement, globalThis.MouseEvent>)=>void;
 
 export type T_handleAnswer =(e: React.ChangeEvent<HTMLInputElement>)=>void;

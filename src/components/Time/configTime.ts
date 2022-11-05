@@ -1,1 +1,1 @@
-export const time=30;
+export const timeDefault=30;
