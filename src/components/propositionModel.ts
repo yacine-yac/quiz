@@ -1,5 +1,6 @@
+import { IndexKind } from "typescript";
 import {T_elements, T_proposition} from "./type";
-
+type T_CheckedPropositions=Array<{checked:number[]}>;
 class Propositions{
     
     private elements:T_elements[]=[];
@@ -21,6 +22,19 @@ class Propositions{
       let currentProposition=this.elements[indexQuestion].proposition[indexPropsition] 
       currentProposition.status=value ?? !currentProposition.status;
     } 
+    clear():void{
+       this.length=0;
+       this.elements=[];
+    }
+    getCheckedPropositions():T_CheckedPropositions{
+      const model:T_CheckedPropositions=[];
+      for (let element  of this.elements){
+         const checking={checked:[]}  as {checked:number[]};
+         element.proposition.forEach((x,y)=>{ x.status===true && checking.checked.push(y) })
+         model.push(checking);
+      };
+         return  model;
+    }
 } 
 const proposition=new Propositions();
 

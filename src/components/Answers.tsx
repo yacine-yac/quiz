@@ -4,9 +4,11 @@ type T_answers={
    propsition:{value:string,status:boolean},
    order:number,
    questionOrder:number,  
+   mode:boolean;
+   type:boolean;   // it refers to input type  true=> checkbox , false => radio
    handleProposition: (index:number,status:boolean)=>void
 } 
-function Answers({propsition,questionOrder,order,handleProposition}:T_answers){
+function Answers({propsition,questionOrder,order,handleProposition,mode,type}:T_answers){
    const ordonne: string[]=["A","B","C","D","E"]; 
    const ownHandler=():void=>{
       handleProposition(order,!propsition.status); 
@@ -17,13 +19,14 @@ function Answers({propsition,questionOrder,order,handleProposition}:T_answers){
                     
                     <li > 
                        <i>{ordonne[order]}</i>
-                       <label  htmlFor={'ts-'+questionOrder+"-"+order }>
+                       <label htmlFor={'ts-'+questionOrder+"-"+order }>
                         <input onChange={ownHandler}  
                            id={'ts-'+questionOrder+"-"+order} 
                            name={"err"+questionOrder}
                            value={order} 
                            checked={propsition.status} 
-                           type="checkbox" 
+                           type={type ? "checkbox" : "radio"} 
+                           disabled={mode}
                         />
                         {propsition.value}
                        </label> 

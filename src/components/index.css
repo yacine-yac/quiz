@@ -21,8 +21,8 @@
 
 /*===========================================================================*/
 .box-body{
-    width: 80%;height: 68%; border-top: 3px solid var(--tr);
-    margin: auto;
+    width: 80%;height: 65%; border-top: 3px solid var(--tr);
+    padding:2%;margin: auto;
 }
 .box-body h2{
     margin-top: 5px;

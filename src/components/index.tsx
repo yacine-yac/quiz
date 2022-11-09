@@ -7,23 +7,29 @@ import QuizButton from './quizButton';
 import {proposition} from './propositionModel';
 import { T_area } from '../Area';
 import {timeDefault} from "./Time/configTime";
-function Component({nextPage,timeOut=timeDefault}:{nextPage:React.Dispatch<React.SetStateAction<T_area>>,timeOut:T_area['time']}){
+import SkeletonAnswers from './skeletonAnswers';
+type T_component={  
+          nextPage:React.Dispatch<React.SetStateAction<T_area>>,
+          timeOut:T_area['time'],
+          mode:boolean};
+function Component({nextPage,timeOut=timeDefault,mode=false}:T_component){
     const [counter,setCounter]=useState(0); 
     const [elements,setElements]=useState<T_elements>({} as T_elements); 
-    const [time,setTime]=useState<number>(timeOut); 
-    time ==0 && nextPage({page:3,time:0}); 
-    useEffect(()=>{  
-        proposition.length==0   
+    const [time,setTime]=useState<number>(timeOut===timeDefault? -1:timeOut);  
+    time ===0 && setTimeout(()=>{nextPage({page:3,mode:true})},1000) ; 
+    useEffect(()=>{  console.log("effect");
+        proposition.length===0   
           ?  fetch('http://localhost/qcm/')
                 .then(response=>{
                     response.json().then((dataRes)=>{ 
                          proposition.setAll(dataRes); 
                          setElements(proposition.getElement(0)); 
-                    }).catch(err=>console.log(err));
+                         setTime(timeOut);
+                    }).catch(err=>{console.log(err)});
             })
            .catch(error=>{console.log(error)})
           :(setElements(proposition.getElement(0)));
-    },[]); 
+    }); 
     const increament:button_event= ()=>{
       /** check counter by increament +2 because the counter start from 0 
        *  //and the first question is always selected before increament the counter
@@ -42,42 +48,52 @@ function Component({nextPage,timeOut=timeDefault}:{nextPage:React.Dispatch<React
           setElements(prev=>{
              prev.proposition[index]={...prev.proposition[index],status}
              return {...prev};
-          });
-          console.log(proposition,"eee",counter,index);
+          }); 
     },[counter]);
     const handleSubmit=()=>{nextPage({page:2,time});}
     return <>
        <div className='box-1 center-block'>
          <div className="box-1-1 center-block">
-            <a role="button" href='#' >Get Back</a> 
+            { mode===true && <a role="button" onClick={()=>nextPage({page:3})} >Get Back</a> }
             <div className="box-head">
-                <h1>Qestion <span>{counter+1}/{proposition.length}</span></h1> 
+              {proposition.length>0 
+               ? <h1>Qestion <span>{counter+1}/{proposition.length}</span></h1> 
+              : <div className="skeleton skeleton-text-med center"></div>}
+                
             </div>
             <div className="box-body">
-                <h2>{elements.question && elements.question}</h2>
+               {elements.question ?  <h2>{elements.question}</h2>
+                 : <div className="skeleton skeleton-text-big"></div>}
                 <ul>
                   {   
-                  elements.proposition &&     
-                    elements.proposition.map((x,y)=>  
+                  elements.proposition     
+                   ? elements.proposition.map((x,y)=>  
                         <Answers  
                               propsition={x}
                               questionOrder={counter}  
                               order={y} key={y} 
                               handleProposition={handleProposition}
+                              mode={mode}
+                              type={elements.choice}
                         />)
+                    : <SkeletonAnswers />
                    }
                 </ul>
             </div>
             <div className="box-footer">
-              { counter==proposition.length-1 
+              { 
+              !elements.proposition
+              ? 
+                <div className='skeleton skeleton-button'></div>
+              :counter==proposition.length-1 
                 ?  <button className='btn btn-submit' onClick={handleSubmit} type='button'>Submit</button>
-                :  <QuizButton   increament={increament}/>
+                    :  counter!==proposition.length-1 && <QuizButton   increament={increament}/>
               }
               <button onClick={decreament} hidden={counter==0 ? true:false}  className='btn'>Back</button>
             </div>
          </div>
        </div>
-       <Time setTime={setTime} time={time} />
+      {mode===false && <Time setTime={setTime} time={time} />}
     </>
 }
 export default memo(Component);
