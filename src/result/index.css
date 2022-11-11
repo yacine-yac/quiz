@@ -1,25 +1,91 @@
-.box-4{
-    width: 55%;height:65%;padding: 1%;
-    border: 3px solid var(--text-color-1);
-    flex-direction: column;
+/* size by screen*/ 
+
+/* Small devices (landscape phones, 576px and up) */  
+@media (max-width: 576px) {      
+    .box-4{
+        width: 90vw;height:75vh;max-width: 400px;border: 0px;
+       }
+       .box-4 a {margin: 8px;}
+       .circle{width: 45vw;height:45vw;max-width: 205px;max-height: 205px;}
+       .box-result{width: 100%;height: 45%;}
+       .box-result ul{width: 90%;height: 70%;text-align: center;}
+       .box-result ul li{font-size: 0.9rem;}
+    }  
+    
+    /* transition */ 
+    @media only screen and (min-width: 576px) {  
+        .box-4{
+            width: 75vw;height:60vh; 
+            border: 3px solid var(--text-color-1);
+           }
+    .box-4 a{margin: 8px;}
+    .circle{width: 30vw;height:30vw;max-width: 190px;max-height:190px;}
+    .box-result{width: 100%;height: 45%;}
+    .box-result ul{width: 90%;height: 55%;margin-left:5px; }
+    .box-result ul li{font-size: 0.8rem;} 
+}  
+
+/* Medium devices (landscape tablets, 768px and up) */ 
+@media only screen and (min-width: 768px) { 
+    .box-4{
+        width: 65vw;height:60vh; 
+        border: 3px solid var(--text-color-1);
+    }
+    .circle{width: 38vw;height:38vw;} 
+    .box-result ul li{font-size: 0.9rem;} 
+    .box-4 a{margin: 4px;}
+} 
+
+/* Large devices (laptops/desktops, 992px and up) */ 
+@media only screen and (min-width: 992px) {  
+    .box-4{
+        width: 65vw;height:60vh; 
+        border: 3px solid var(--text-color-1);
+    }
+    .circle{width:48vw;height:48vw;} 
+    .box-result ul li{font-size: 0.8rem;}
+} 
+
+ 
+ 
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */ 
+
+@media only screen and (min-width: 1200px) {   
+
+} 
+
+ 
+ 
+/*========================================================================================= */
+.box-4{ 
+    padding: 2%;  
+    flex-direction: column;position: relative;
 }
-.circle{
-    width: 12vw;height:25vh;
+.box-4 a{position: absolute;top: 0px;}
+.circle{ 
+    min-height: 130px;min-width: 140px;
     margin: 5px;
     border-radius: 50%;
     border: 3px solid var(--text-color-1);
     text-align: center;
     color: var(--text-color-1); 
 }
-.box-result{
-    width: 100%;height: 40%; 
+.box-result{ 
+     border: 0px solid yellow; 
 }
-.box-result ul{
-    width: 90%;height: 40%;
+.box-result ul{ 
+    border: 0px solid rgb(38, 255, 0);  
 }
 .box-result ul li{
     color: var(--text-color-2);
-    margin-top: 10px;
-    font-size:x-large;
+    margin-top: 15px;border: 0px solid green;margin-left: 0px; 
     font-family: var(--style-text);
+}
+
+.succes{
+    color:#58D68D;border-color: #58D68D;
+}
+.wrong{
+    color:#E74C3C ;border-color:#E74C3C ;
 }

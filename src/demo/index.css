@@ -1,21 +1,70 @@
-.box-1{
-    width: 90vw;height: 85%;
+
+/* Small devices (landscape phones, 576px and up) */ 
+@media (max-width: 576px) {   
+    .box-1{
+        width: 100vw;height: 85vh;
+    }
+    .box-1-1{
+        width: 95%;height: 90%;border: 0px;
+     }
+     .box-3{width: 90%;height: 45%;}
+     .box-3 h1{
+        font-size: 1.1rem;
+     }
+
+ }
+ /* transition */
+ @media only screen and (min-width: 576px) { 
+    .box-1-1{
+        width: 75%;height: 70%; border: 2px solid white;
+     }
+    .box-3{width: 90%;height: 45%;}
+     .box-3 h1{
+        font-size: 1.3rem;
+     }
     
+ } 
+ /* Medium devices (landscape tablets, 768px and up) */
+ @media only screen and (min-width: 768px) { 
+    .box-1-1{
+        width: 75%;height: 70%; border: 2px solid white;
+     }
+     .box-3{width: 90%;height: 35%;}
+     .box-3 h1{
+        font-size: 1.4rem;
+     }
+ }
+ 
+ /* Large devices (laptops/desktops, 992px and up) */
+ @media only screen and (min-width: 992px) {
+    .box-1-1{
+        width: 65%;height: 65%; border: 2px solid white;
+     }
+     .box-3{width: 90%;height: 35%;}
+     .box-3 h1{
+        font-size: 1.3rem;
+     }
+
 }
-.box-1-1{
-    width: 75%;height: 93%;
+ 
+ /* Extra large devices (large laptops and desktops, 1200px and up) */
+ @media only screen and (min-width: 1200px) { 
+   
+}
+
+/*===========================================================================================
+classes */
+
+.box-1-1{ 
     padding: 1%;
-    border: 2px solid white;
     background-color: var(--second-color);
 }
-.box-3{
-    width: 60%;height: 45%; 
+.box-3{ 
     flex-direction: row;
 }
 .box-3 h1{
     width: 100%;
-    text-align: center;
-    font-size: 1.2rem;
+    text-align: center; 
     font-family: var(--style-text);
     color: var(--text-color-2);
 }

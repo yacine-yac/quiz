@@ -1,16 +1,43 @@
+/* size by screen*/  
+/* Small devices (landscape phones, 576px and up) */   
+@media (max-width: 576px) {      
+     .box-time{ width: 20vw;height: 5vh;float: right;margin-top: 10px;margin-right: 10px;  }
+  .box-time .p-time{ font-size: 0.8rem;height: 15px;}
+}   
+/* transition */  
+@media only screen and (min-width: 576px) {  
+   .box-time{ width: 20vw;height: 5vh;float: right;max-width: 118px;margin-top: 10px;margin-right: 10px;  }
+  .box-time .p-time{ font-size: 0.8rem;height: 15px;}
+}   
+/* Medium devices (landscape tablets, 768px and up) */  
+@media only screen and (min-width: 768px) {  
+    .box-time{ border-radius: 50%; width: 10vw;height: 20vh;
+        margin-top: 10px;margin-right: 10px; 
+        min-width:93px;min-height:115px ;
+     }
+    .box-time .p-time{font-size: 1rem;}
+}  
+/* Large devices (laptops/desktops, 992px and up) */  
+@media only screen and (min-width: 992px) {  
+    .box-time{ border-radius: 50%; width: 20vw;height: 30vh;margin-right: 5vw;margin-top: 2vw; }
+    .box-time .p-time{font-size: 0.9rem;}
+}  
+/* Extra large devices (large laptops and desktops, 1200px and up) */  
+@media only screen and (min-width: 1200px) {   
+
+} 
 .box-time{
-     width: 10vw;height: 20vh;
-     border-radius: 50%;  
+     /* width: 10vw;height: 20vh; */
+    
      border: 3px solid white;
      background-color: var(--second-color);
-     
-     margin-top: 10px;margin-right: 10px;  
+     /* margin-top: 10px;margin-right: 10px;   */
 }
 .box-time .p-time{ 
     /* border: 1px solid red; */
-    height:35%; 
+    /* height:35%;  */
     color: var(--time-text) ;  
     font-family: var(--time-style);
-    font-size: xx-large;
+    
 }
 .alert-time{color: red !important; border-color: red;}

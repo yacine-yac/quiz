@@ -5,7 +5,7 @@
     --time-text:white;
     --time-style: sans-serif;
     --tr:rgba(183, 184, 185, 0.873);
-
+   --layer-2-bg:#34495ed8 ;
     /* text-color*/
     --text-color-1:white;
     --text-color-2:rgba(255, 255, 255, 0.644);
@@ -13,6 +13,43 @@
     --text-active:rgb(62, 64, 68);
     --style-text:sans-serif;
 }
+/*==============================================================================================================*/
+/* size by screen*/
+/* Small devices (landscape phones, 576px and up) */ 
+@media (max-width: 576px) {   
+       html{font-size: 21px;}
+       /*button*/
+     .btn{width: 22vw;height: 5vh;font-size: 0.6rem;}  
+ } 
+  /* transition */
+ @media only screen and (min-width: 576px) { 
+    
+        html{font-size: 22px;}
+        /*button*/
+     .btn{width: 16vw;height: 6vh;font-size: 0.7rem;} 
+    
+ } 
+ /* Medium devices (landscape tablets, 768px and up) */
+ @media only screen and (min-width: 768px) { 
+        html{font-size: 22px;}
+        /*button*/
+     .btn{width: 12vw;height: 6vh;font-size: 0.7rem;} 
+}
+ 
+ /* Large devices (laptops/desktops, 992px and up) */
+ @media only screen and (min-width: 992px) {
+        html{font-size: 28px;}
+        /*button*/
+        .btn{width: 11vw;height: 6vh;font-size: 0.5rem;}
+}
+ 
+ /* Extra large devices (large laptops and desktops, 1200px and up) */
+ @media only screen and (min-width: 1200px) { 
+      html{font-size: 34px;}
+}
+
+
+/* classes*/
 .center{
     display: flex;  
     align-items: center;
@@ -28,13 +65,14 @@
 .center-block{
     left: 0;right: 0;bottom: 0;top: 0;margin: auto;
 }
-
+/* layer-2 */
+.layer-2{position: absolute;z-index: 20;width: 100vw;height: 90vh;background-color: var(--layer-2-bg)}
 /* default Tags*/
-html{font-size: 28px;}
 button{
     border: 0px;outline: none;margin: 5px;cursor: pointer;
     background-color: var(--tr);
 }
+ul{ margin: 0;   padding: 0; }
 li{list-style-type: none;}
 a{text-decoration: none;}
 a[role='button']{
@@ -47,17 +85,57 @@ a[role='button']:hover{
     color: var(--text-color-1);transition: 0.45s ease-in;
     cursor: pointer;
 }
-/* classes */
-.btn{
-    width: 110px;height: 32px;border-radius: 16px;
+/* classes button */
+.btn{ 
+    border-radius: 16px;
     float: right;
     color: var(--text-color-1);
 }
-.btn-active{background-color: rgb(133, 207, 69);}
+.btn-submit{background-color: rgb(133, 207, 69);}
+.btn-next{background-color: #e44c65;}
 .btn-reverse{float: left;background-color: var(--text-color-3);}
 
 .btn-a{
     width: 110px;height: 35px;
     border-radius: 16px; font-size: x-large;
     color: var(--text-color-1);
+}
+
+.btn-a-2{
+    width: 110px;height: 35px;
+    border-radius: 16px; font-size: medium;
+    color: var(--text-color-1);cursor: pointer;
+}
+
+/* skeleton */
+.skeleton{
+    animation:  skeleton-loading 1s linear infinite alternate;
+   
+    border-end-end-radius: 0.28rem;
+    border-top-right-radius: 0.28rem;
+}
+@keyframes skeleton-loading {
+    0%{
+        background-color: hsl(200, 15%, 23%);
+    }
+    100%{
+        background-color: hsl(200, 2%, 72%);
+    }
+}
+.skeleton-text{
+    width: 25vw;height:4vh; margin: auto 1vh;
+}
+.skeleton-text-big{
+    width: 35vw;height:4vh; margin: auto 1vh;  
+}
+.skeleton-text-med{
+    width: 20vw;height:4vh;border-radius: 0.28rem;  
+}
+li:last-child .skeleton-text{width: 16vw;}
+.skeleton-button{
+    width: 110px;height: 32px;border-radius: 16px;
+    float: right;
+}
+.skeleton-time{
+    width: 60%;height: 18px;border-radius: 12px;
 }

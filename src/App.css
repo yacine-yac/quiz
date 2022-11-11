@@ -1,7 +1,40 @@
+ /* size by screen*/ 
+
+/* Small devices (landscape phones, 576px and up) */  
+
+@media (max-width: 576px) {      
+  .App{display: inline-block;}
+}  
+
+/* transition */ 
+
+@media only screen and (min-width: 576px) {  .App{display: inline-block;}
+  /* .App{display:  flex;flex-direction:row-reverse ;}  */
+}  
+
+/* Medium devices (landscape tablets, 768px and up) */ 
+
+@media only screen and (min-width: 768px) {  
+  .App{display:  flex;flex-direction:row-reverse ;} 
+}  
+/* Large devices (laptops/desktops, 992px and up) */  
+@media only screen and (min-width: 992px) {   
+  .App{display:  flex;flex-direction:row-reverse ;} 
+} 
+
+ 
+ 
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */ 
+
+@media only screen and (min-width: 1200px) {   
+
+} 
+
 .App {
   width: 100vw;
   height: 87vh; 
-  display: inline-flex;
+  /* display: inline-block; */
 }
 
 .App-logo {

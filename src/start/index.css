@@ -1,17 +1,77 @@
+/**/
+/* Small devices (landscape phones, 576px and up) */ 
+@media (max-width: 576px) {   
+    .box-2{
+     width: 95vw;height: 90%; 
+    } 
+    .box-2 h1{ font-size: 2rem;}
+    .box-2 ol{
+        width:75%;height: 30%; 
+    }
+    .box-2 ol li{font-size: 0.7rem;height: 33%;}
+ }
+ /* transition */
+ @media only screen and (min-width: 576px) { 
+    .box-2{
+        width: 90vw;height: 90%; 
+    }
+    .box-2 h1{ font-size: 2.1rem;}
+    .box-2 ol{
+        width:75%;height: 27%; 
+    }
+    .box-2 ol li{font-size: 0.8rem;}
+ } 
+ /* Medium devices (landscape tablets, 768px and up) */
+ @media only screen and (min-width: 768px) { 
+    .box-2{
+        width:85vw;height: 75vh;
+    }
+    .box-2 h1{font-size: 1.6rem;}
+    .box-2 ol{
+        width:75%;height: 25%; 
+    }
+    .box-2 ol li{font-size: 0.8rem;}
+
+ }
+ 
+ /* Large devices (laptops/desktops, 992px and up) */
+ @media only screen and (min-width: 992px) {
+   .box-2{
+    width: 70vw;height: 80vh;
+  
+   } 
+    .box-2 h1{font-size: 1.4rem;}
+    .box-2 ol{
+        width:75%;height: 24%; 
+    }
+    .box-2 ol li{font-size: 0.7rem;}
+
+}
+ 
+ /* Extra large devices (large laptops and desktops, 1200px and up) */
+ @media only screen and (min-width: 1200px) { 
+    .box-2{ 
+        width: 70%;height: 75%;
+    }
+}
+
+/*===========================================================================================
+classes */
 .box-2{
     border: 2px solid var(--text-color-1);
-    width: 80%;height: 75%;
+    /* width: 80%;height: 75%; */
     flex-direction: column;
 }
 .box-2 h1{
-    font-size: 1.6rem;
+    /* font-size: 1.6rem; */
     font-family: var(--style-text);
     color: var(--text-color-1);margin-bottom: 10px;
 }
-.box-2 ol{
-    width: 60%;height: 35%; 
-}
+/* .box-2 ol{
+    width: 60%;height: 35%; border: 1px solid red; 
+} */
 .box-2 li{
-    font-size: 0.8rem;
-    color:var(--text-color-2);
+    /* font-size: 0.8rem; */
+    color:var(--text-color-2);list-style-type: lower-alpha;
 }
+

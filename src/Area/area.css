@@ -1,3 +1,59 @@
+/* size by screen*/
+/* Small devices (landscape phones, 576px and up) */ 
+/* :root{--ggs:red;} */
+@media (max-width: 576px) {    
+    .gg-loadbar-alt,.gg-loadbar-alt::before,.gg-loadbar-alt::after {
+        border-radius: 24px ;height: 10px;
+    }
+    .gg-loadbar-alt {width: 25vw;}
+    .gg-loadbar-alt::after {
+        width: 25vw; }
+    /* error boundary */
+    .box-error{
+        width: 90vw;height: 55vh;min-width: 350px;}
+} 
+/* transition */
+@media only screen and (min-width: 576px) { 
+    .gg-loadbar-alt,.gg-loadbar-alt::before,.gg-loadbar-alt::after{
+        border-radius: 20px ;height: 10px;
+    }
+    .gg-loadbar-alt {width: 20vw;}
+    .gg-loadbar-alt::after{
+        width: 20vw; }
+    /* error boundary */
+    .box-error{
+        width: 75vw;height: 45vh;}
+} 
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) { 
+    .gg-loadbar-alt,.gg-loadbar-alt::before,.gg-loadbar-alt::after{
+        border-radius: 20px ;height: 10px;
+    }
+    .gg-loadbar-alt {width: 20vw;}
+    .gg-loadbar-alt::after{
+        width: 20vw; }
+    /* error boundary */
+    .box-error{ width: 55vw;height: 50vh;}
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) { 
+    .gg-loadbar-alt,.gg-loadbar-alt::before,.gg-loadbar-alt::after{
+        border-radius: 20px ;height: 10px;
+    }
+    .gg-loadbar-alt {width: 20vw;}
+    .gg-loadbar-alt::after{
+        width: 20vw; }
+    /* error boundary */
+    .box-error{ width: 55vw;height: 45vh;max-width: 1000px;}
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {  
+}
+
+/*====================================================================================================*/
+
 @keyframes loadbaralt {
     0%,to { left: 0; right: 80% }
     25%,75% { left: 0; right: 0 }
@@ -7,14 +63,12 @@
 .gg-loadbar-alt::before,
 .gg-loadbar-alt::after {
     display: block;
-    box-sizing: border-box;
-    height: 8px;
-    border-radius: 4px
+    box-sizing: border-box; 
+    
 }
 .gg-loadbar-alt {
     position: relative;
-    transform: scale(var(--ggs,1));
-    width: 10vw;
+    transform: scale(var(--ggs,1)); 
 }
 .gg-loadbar-alt::after,
 .gg-loadbar-alt::before {
@@ -25,8 +79,7 @@
 .gg-loadbar-alt::before {
     animation: loadbaralt 2s cubic-bezier(0,0,.58,1) infinite
 }
-.gg-loadbar-alt::after {
-    width: 10vw;
+.gg-loadbar-alt::after { 
     opacity: .3
 }
 
@@ -34,8 +87,8 @@
 
 /* boundary style */
 
-.box-error{
-    width: 45vw;height: 55vh;flex-direction: column;
+.box-error{ 
+    flex-direction: column;max-width: 840px;
 }
 .box-error img{height: 80%;width: 100%;}
 .box-error h1 {color: white;font-size: larger;}
