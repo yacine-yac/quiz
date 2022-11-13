@@ -1,15 +1,15 @@
 function SkeletonAnswers(){
     return <>
-                    <li> 
-                       <i></i>
+                    <li className="center-v"> 
+                       <i className="skeleton-i"></i>
                        <div className="skeleton skeleton-text"></div> 
                     </li> 
-                    <li> 
-                       <i></i>
+                    <li className="center-v"> 
+                       <i className="skeleton-i"></i>
                        <div className="skeleton skeleton-text"></div> 
                     </li>
-                    <li> 
-                       <i></i>
+                    <li className="center-v"> 
+                       <i className="skeleton-i"></i>
                        <div className="skeleton skeleton-text"></div> 
                     </li>
     </>

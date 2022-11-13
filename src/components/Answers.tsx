@@ -13,11 +13,11 @@ function Answers({propsition,questionOrder,order,handleProposition,mode,type}:T_
    const ownHandler=():void=>{
       handleProposition(order,!propsition.status); 
    }
-   //  console.log('allo');
+   //  console.log('allo',propsition.value);
    return  <>
             { 
                     
-                    <li > 
+                    <li> 
                        <i>{ordonne[order]}</i>
                        <label htmlFor={'ts-'+questionOrder+"-"+order }>
                         <input onChange={ownHandler}  
@@ -27,6 +27,7 @@ function Answers({propsition,questionOrder,order,handleProposition,mode,type}:T_
                            checked={propsition.status} 
                            type={type ? "checkbox" : "radio"} 
                            disabled={mode}
+                           data-truth={(mode && propsition.status) ? 'true' : 'false'}
                         />
                         {propsition.value}
                        </label> 
@@ -34,4 +35,4 @@ function Answers({propsition,questionOrder,order,handleProposition,mode,type}:T_
                }
    </>
 }
-export default memo(Answers);
+export default  memo(Answers);

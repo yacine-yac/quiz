@@ -34,7 +34,16 @@ class Propositions{
          model.push(checking);
       };
          return  model;
-    }
+   }
+   setTruthStatus(truthStatus:{final:Array<number>}[]):void{
+        this.elements= this.elements.map((a,b)=>{
+           let propo= a.proposition.map((y,z)=>{ 
+               const isInside= truthStatus[b].final.includes(z);console.log('rrre',isInside);
+               return {...y,status:isInside};
+            });
+            return {...a,proposition:propo};
+         });
+   }
 } 
 const proposition=new Propositions();
 

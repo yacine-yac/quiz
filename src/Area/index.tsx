@@ -8,18 +8,18 @@ import { proposition } from '../components/propositionModel';
 import { useEffect, useState } from 'react';
 export type T_area={page :1| 2|3 |4,time?:number,mode?:boolean};
 function Area(){ 
-      const [areaState,setAreaState]=useState<T_area>({page:1,time:undefined});console.log('rrr',areaState.time);
-      useEffect(()=>{ console.log('area');  
+      const [areaState,setAreaState]=useState<T_area>({page:1,time:undefined}); 
+      useEffect(()=>{   
          if(areaState.page==3){
             let dataPost=proposition.getCheckedPropositions();
-            fetch('http://localhost/qcm/app.php',{method:"POST",body:JSON.stringify(dataPost)})
+            fetch('http://192.168.1.132/qcm/app.php',{method:"POST",body:JSON.stringify(dataPost)})
             .then(response=>{
                   response.json().then(res=>{
                       ResultModel.call(res.information);
+                      proposition.setTruthStatus(res.global); 
                       setAreaState(prev=>{return {...prev,page:4}})
-                  }).catch(err=>{console.log(err)});
-           }).catch(error=>{ console.log(error); throw Error('error fetched');  })
-            // console.log(proposition.getCheckedPropositions(),"ddd")
+                  }).catch(error=>{throw new Error(error)});
+           }).catch(error=>{ setAreaState(prev=>{throw Error('error fetched')})  }) 
          }
       },[areaState.page]);
      return <>

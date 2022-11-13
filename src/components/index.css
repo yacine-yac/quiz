@@ -110,6 +110,8 @@
 .box-body ul li:has(input:not(:checked)){color: var(--text-color-1); background: none;}
 .box-body ul li:has(input:not(:checked)) i{background:none;}
 .box-body ul li label:has(input:not(:checked)){color: var(--text-color-2);}
+.box-body ul li label:has(input[data-truth='true']){background-color: #2ECC71;}
+.box-body ul li:has(input[data-truth='true']) i{background-color: red;}
 /* checked input style */
 .box-body ul li:has(input:checked){
    background-color: var(--text-color-1);
@@ -130,7 +132,6 @@
     font-size: large;font-family:Century Gothic ,Verdana,sans-serif ;
     border:2px solid var(--tertiary-color);
 }
-
 /*======================================================*/
 .box-footer{
     width: 100%;

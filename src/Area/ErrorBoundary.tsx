@@ -9,7 +9,7 @@ class ErrorBoundary extends Component<{children:JSX.Element},{hasError:boolean}>
           return {hasError:true};
     }
     
-    render(){  console.log(this.props,"eee");
+    render(){  
       return <>
               {this.state.hasError 
                   ? <div className="box-error center-block center">

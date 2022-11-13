@@ -7,7 +7,7 @@ function Time({setTime,time}:{setTime :React.Dispatch<React.SetStateAction<numbe
       const countMinut=Math.floor(r/60);
       const countSecond=Math.floor(r%60);
       return `${countMinut>0 ? countMinut >9? countMinut : "0"+countMinut : "00"}:${countSecond>0  ? countSecond>9 ? countSecond : "0"+countSecond : "00" }`;
-    }; console.log('time',time);
+    };  
     useEffect(()=>{ 
           const rf= setInterval(()=>{
             time >0 && setTime(prev=>prev-1);
@@ -18,9 +18,9 @@ function Time({setTime,time}:{setTime :React.Dispatch<React.SetStateAction<numbe
     },[time]);
    
     return <>
-       <div className="box-time direction-r-t center">
-        {time >=0 
-            ?  <p className={`p-time ${(time<5 && time!==0) ? "alert-time" :""}`}  >{_formater(time)}</p>
+       <div className="box-time direction-r-t center"> 
+        { time >=0 
+            ?  <p className={ (time<5 && time!==0) ? "p-time alert-time" :"p-time" }>{_formater(time)}</p>
             : <div className="skeleton skeleton-time"></div> 
         } 
        </div>

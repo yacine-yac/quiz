@@ -2,10 +2,9 @@ import React from 'react';
 import {Routes,Route} from 'react-router-dom';
 import './App.css';
 import './Global-style.css'
-import Component from './components';
 import Start from './start';
-import Demo from './demo'; 
-import Result from './result';
+import Area from './Area';
+import ErrorBoundary from './Area/ErrorBoundary'; 
 function App() {
   return (
   <>
@@ -13,10 +12,8 @@ function App() {
     <div className="App">
       <Routes>
         <Route path="/" element={<Start />}/> 
-        <Route path="/quiz" element={<Component />}/> 
+        <Route path="/quiz" element={<ErrorBoundary><Area /></ErrorBoundary>  }/> 
       </Routes> 
-         {/* <Demo /> */}
-         {/* <Result /> */}
     </div>
   </>
   );

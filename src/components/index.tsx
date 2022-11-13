@@ -16,25 +16,27 @@ function Component({nextPage,timeOut=timeDefault,mode=false}:T_component){
     const [counter,setCounter]=useState(0); 
     const [elements,setElements]=useState<T_elements>({} as T_elements); 
     const [time,setTime]=useState<number>(timeOut===timeDefault? -1:timeOut);  
-    time ===0 && setTimeout(()=>{nextPage({page:3,mode:true})},1000) ; 
-    useEffect(()=>{  console.log("effect");
+    // time ===0 && setTimeout(()=>{nextPage({page:3,mode:true})},1000); 
+    useEffect(()=>{  
         proposition.length===0   
-          ?  fetch('http://localhost/qcm/')
+          ?  fetch('http://192.168.1.132/qcm/')
                 .then(response=>{
                     response.json().then((dataRes)=>{ 
                          proposition.setAll(dataRes); 
                          setElements(proposition.getElement(0)); 
                          setTime(timeOut);
-                    }).catch(err=>{console.log(err)});
+                    }).catch(error=>{setTime(prev=>{throw new Error(error)})});
             })
-           .catch(error=>{console.log(error)})
+           .catch(error=>{ 
+                   setTime(prev=>{throw new Error(error)}) // throw error in state (boudary detecte error)
+           })
           :(setElements(proposition.getElement(0)));
-    }); 
+    },[]);  
     const increament:button_event= ()=>{
       /** check counter by increament +2 because the counter start from 0 
        *  //and the first question is always selected before increament the counter
        */
-       setCounter(counter+1);  
+       setCounter(counter+1);  //console.log('increament',counter+1,proposition.getElement(counter+1));
        counter < proposition.getpropositions(counter).length-1 && setElements(proposition.getElement(counter+1)); 
      } ;
     const decreament= ():void=>{
@@ -52,13 +54,14 @@ function Component({nextPage,timeOut=timeDefault,mode=false}:T_component){
     },[counter]);
     const handleSubmit=()=>{nextPage({page:2,time});}
     return <>
-       <div className='box-1 center-block'>
-         <div className="box-1-1 center-block">
+       {mode===false && <Time setTime={setTime} time={time} />}
+       <div className='box-quiz center-block'>
+         <div className="box-quiz-1 center-block">
             { mode===true && <a role="button" onClick={()=>nextPage({page:3})} >Get Back</a> }
             <div className="box-head">
               {proposition.length>0 
                ? <h1>Qestion <span>{counter+1}/{proposition.length}</span></h1> 
-              : <div className="skeleton skeleton-text-med center"></div>}
+              : <div className="skeleton skeleton-text-med  center-block"></div>}
                 
             </div>
             <div className="box-body">
@@ -85,7 +88,7 @@ function Component({nextPage,timeOut=timeDefault,mode=false}:T_component){
               !elements.proposition
               ? 
                 <div className='skeleton skeleton-button'></div>
-              :counter==proposition.length-1 
+              :(counter==proposition.length-1 && mode===false )
                 ?  <button className='btn btn-submit' onClick={handleSubmit} type='button'>Submit</button>
                     :  counter!==proposition.length-1 && <QuizButton   increament={increament}/>
               }
@@ -93,7 +96,7 @@ function Component({nextPage,timeOut=timeDefault,mode=false}:T_component){
             </div>
          </div>
        </div>
-      {mode===false && <Time setTime={setTime} time={time} />}
+      
     </>
 }
 export default memo(Component);
