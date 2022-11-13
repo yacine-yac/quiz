@@ -16,7 +16,7 @@ function Component({nextPage,timeOut=timeDefault,mode=false}:T_component){
     const [counter,setCounter]=useState(0); 
     const [elements,setElements]=useState<T_elements>({} as T_elements); 
     const [time,setTime]=useState<number>(timeOut===timeDefault? -1:timeOut);  
-    // time ===0 && setTimeout(()=>{nextPage({page:3,mode:true})},1000); 
+    time ===0 && setTimeout(()=>{nextPage({page:3,mode:true})},1000); 
     useEffect(()=>{  
         proposition.length===0   
           ?  fetch('http://192.168.1.132/qcm/')
@@ -36,7 +36,7 @@ function Component({nextPage,timeOut=timeDefault,mode=false}:T_component){
       /** check counter by increament +2 because the counter start from 0 
        *  //and the first question is always selected before increament the counter
        */
-       setCounter(counter+1);  //console.log('increament',counter+1,proposition.getElement(counter+1));
+       setCounter(counter+1);  
        counter < proposition.getpropositions(counter).length-1 && setElements(proposition.getElement(counter+1)); 
      } ;
     const decreament= ():void=>{
