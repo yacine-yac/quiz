@@ -11,7 +11,9 @@ type T_answers={
 function Answers({propsition,questionOrder,order,handleProposition,mode,type}:T_answers){
    const ordonne: string[]=["A","B","C","D","E"]; 
    const ownHandler=():void=>{
-      handleProposition(order,!propsition.status); 
+   //  type ?
+      handleProposition(order,!propsition.status)
+      // :null; 
    }
    //  console.log('allo',propsition.value);
    return  <>

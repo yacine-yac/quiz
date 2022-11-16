@@ -5,7 +5,7 @@ import {proposition} from "../components/propositionModel";
 import './index.css';
 function Result({nextPage}:{nextPage:React.Dispatch<React.SetStateAction<T_area>>}){
       const handleBack=()=>{nextPage({mode:true,page:1})}; 
-      const rest=()=>{proposition.clear();ResultModel.call(); nextPage({page:1})}; 
+      const rest=()=>{proposition.clear();ResultModel.call()?.clear(); nextPage({page:1})}; 
       const {success,wrong,proportion,grade}= ResultModel.call()?.getData() ?? {} as T_result;
       const circlClasses= grade ?`circle center-block center succes`: "circle center-block center wrong";
       return <>

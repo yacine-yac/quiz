@@ -1,4 +1,4 @@
-import { IndexKind } from "typescript";
+ 
 import {T_elements, T_proposition} from "./type";
 type T_CheckedPropositions=Array<{checked:number[]}>;
 class Propositions{
@@ -38,7 +38,7 @@ class Propositions{
    setTruthStatus(truthStatus:{final:Array<number>}[]):void{
         this.elements= this.elements.map((a,b)=>{
            let propo= a.proposition.map((y,z)=>{ 
-               const isInside= truthStatus[b].final.includes(z);console.log('rrre',isInside);
+               const isInside= truthStatus[b].final.includes(z); 
                return {...y,status:isInside};
             });
             return {...a,proposition:propo};

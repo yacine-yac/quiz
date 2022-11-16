@@ -1,46 +1,68 @@
-# Getting Started with Create React App
+# QUIZ Project 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This small project is build using **React js** library and **Typescript**.
+the project release set of questions with some propositions and the user will check the right answers.
 
-## Available Scripts
+Nb: the answers can be one or multiple 
 
-In the project directory, you can run:
+## Technologies 
+* React js : for handling ui 
+* php Api : Send the questions and answers, check the answers and return the result in Json format.
+  
+  
+___
+## User interface :
+ The user interface is build by react Js libarary,the App component handle all the rest of components.
+  ### Components list:
+  * Area
+      * ErrorBoundary
+  * demo
+  * result
+  * start
+  * component
+     * Answers 
+     * Time
+     * quizButton
+  
+  Firstly,our **App** has a **router** which detecte the current path url and return the suitable component   component we used router for UI by  **React-router-dom** package.
+ * path : 
+      * /     =>  Start component
+      * /quiz =>  Area  component  
+ ### `Area Component` :
+ this component handle the current ui, it has a state Management **page** which returns the component thats suits : 
+ * 1: Component 
+ * 2: Demo 
+ * 3: Load page
+ * 4: Result 
+  also, it has the time state which is initialized by undefined to controle the time in the entire app and change the current page state when the time is finish or started.
+### `Errour Boundary` :
+this component release a special UI when the error occurs, it accepts a child components as props. 
+```javascript
+<ErrorBoundary>
+   <ChildComponent />
+</ErrorBoundary>
+```
+It has an error state and implement the method **getDerivedStateFromError** which set error state if the child component throw an **Error** in her lifecycle if not it returns the child component.
 
-### `npm start`
+### `Start Component` :
+Our App route to **Start** component when the urli is in root **/** it return a UI describe some conditions with link page to **/quiz** .
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### `Demo Component`
+This component is an intermediate **UI** between submit the answers to the server and realse the Result, further it has two button actions 
+ * Whiche the first one allow to change **Area** component state to get back to quiz **UI**.
+ * The second allows to change **Area** component state to pass data to the server.
+ 
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+___
+## php Api
+  
+  The current api work to provide question and propositions for **React App** 
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+  * Directories structure 
+   ![structures]()
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).

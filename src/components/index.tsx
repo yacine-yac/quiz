@@ -44,13 +44,13 @@ function Component({nextPage,timeOut=timeDefault,mode=false}:T_component){
          setCounter(counter-1);
          setElements(proposition.getElement(counter-1));
       }
-    };
+    };useEffect(()=>{console.log('before',elements);},[elements]);
     const handleProposition=useCallback((index:number,status:boolean)=>{ 
           proposition.setStatus(counter,index);
           setElements(prev=>{
              prev.proposition[index]={...prev.proposition[index],status}
              return {...prev};
-          }); 
+          });  
     },[counter]);
     const handleSubmit=()=>{nextPage({page:2,time});}
     return <>
