@@ -6,13 +6,14 @@ import ErrorBoundary from './ErrorBoundary';
 import {ResultModel} from '../result/modelResult';
 import { proposition } from '../components/propositionModel';
 import { useEffect, useState } from 'react';
+import {link} from "./const";
 export type T_area={page :1| 2|3 |4,time?:number,mode?:boolean};
 function Area(){ 
       const [areaState,setAreaState]=useState<T_area>({page:1,time:undefined}); 
       useEffect(()=>{   
          if(areaState.page==3){
             let dataPost=proposition.getCheckedPropositions();
-            fetch('http://192.168.1.132/qcm/app.php',{method:"POST",body:JSON.stringify(dataPost)})
+            fetch(link,{method:"POST",body:JSON.stringify(dataPost)})
             .then(response=>{
                   response.json().then(res=>{
                       ResultModel.call(res.information);

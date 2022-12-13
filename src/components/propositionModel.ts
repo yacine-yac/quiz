@@ -1,6 +1,6 @@
  
 import {T_elements, T_proposition} from "./type";
-type T_CheckedPropositions=Array<{checked:number[]}>;
+type T_CheckedPropositions={[key:number]: {checked:number[]}} ;
 class Propositions{
     
     private elements:T_elements[]=[];
@@ -27,13 +27,14 @@ class Propositions{
        this.elements=[];
     }
     getCheckedPropositions():T_CheckedPropositions{
-      const model:T_CheckedPropositions=[];
-      for (let element  of this.elements){
+      const model:T_CheckedPropositions={};
+      for (let i  in this.elements){
          const checking={checked:[]}  as {checked:number[]};
-         element.proposition.forEach((x,y)=>{ x.status===true && checking.checked.push(y) })
-         model.push(checking);
+         this.elements[i].proposition.forEach((x,y)=>{ x.status===true && checking.checked.push(y) })
+         //  model.push(checking);
+         model[i]=checking;
       };
-         return  model;
+         return model;
    }
    setTruthStatus(truthStatus:{final:Array<number>}[]):void{
         this.elements= this.elements.map((a,b)=>{

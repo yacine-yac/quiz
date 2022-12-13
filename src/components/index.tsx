@@ -8,6 +8,7 @@ import {proposition} from './propositionModel';
 import { T_area } from '../Area';
 import {timeDefault} from "./Time/configTime";
 import SkeletonAnswers from './skeletonAnswers';
+import { link } from './config';
 type T_component={  
           nextPage:React.Dispatch<React.SetStateAction<T_area>>,
           timeOut:T_area['time'],
@@ -19,7 +20,7 @@ function Component({nextPage,timeOut=timeDefault,mode=false}:T_component){
     time ===0 && setTimeout(()=>{nextPage({page:3,mode:true})},1000); 
     useEffect(()=>{  
         proposition.length===0   
-          ?  fetch('http://192.168.1.132/qcm/')
+          ?  fetch(link)
                 .then(response=>{
                     response.json().then((dataRes)=>{ 
                          proposition.setAll(dataRes); 
