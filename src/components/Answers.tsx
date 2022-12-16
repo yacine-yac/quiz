@@ -1,5 +1,4 @@
-import {memo , useEffect, useState} from "react"; 
-import { proposition as ze } from "./propositionModel";
+import {memo } from "react";  
 type T_answers={ 
    propsition:{value:string,status:boolean},
    order:number,

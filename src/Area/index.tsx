@@ -11,7 +11,7 @@ export type T_area={page :1| 2|3 |4,time?:number,mode?:boolean};
 function Area(){ 
       const [areaState,setAreaState]=useState<T_area>({page:1,time:undefined}); 
       useEffect(()=>{   
-         if(areaState.page==3){
+         if(areaState.page===3){
             let dataPost=proposition.getCheckedPropositions();
             fetch(link,{method:"POST",body:JSON.stringify(dataPost)})
             .then(response=>{

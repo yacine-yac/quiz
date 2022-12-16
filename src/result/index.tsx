@@ -8,9 +8,10 @@ function Result({nextPage}:{nextPage:React.Dispatch<React.SetStateAction<T_area>
       const rest=()=>{proposition.clear();ResultModel.call()?.clear(); nextPage({page:1})}; 
       const {success,wrong,proportion,grade}= ResultModel.call()?.getData() ?? {} as T_result;
       const circlClasses= grade ?`circle center-block center succes`: "circle center-block center wrong";
-      return <>
+     /*eslint-disable */
+     return <>
         <div className="box-4 center-block center">
-            <a onClick={handleBack} role="button" >Get Back</a>
+            <a href='#' onClick={handleBack} role="button" >Get Back</a>
             <div className={circlClasses}>{ `${proportion}%`}</div>
             <div className='box-result'>
                 <ul>

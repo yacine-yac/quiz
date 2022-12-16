@@ -1,7 +1,7 @@
 import Time from './Time';
 import './index.css';
 import Answers from './Answers';
-import { T_proposition,button_event,T_elements   } from './type';
+import { button_event,T_elements} from './type';
 import React, { memo, useCallback, useEffect, useState } from 'react';  
 import QuizButton from './quizButton'; 
 import {proposition} from './propositionModel';
@@ -18,6 +18,7 @@ function Component({nextPage,timeOut=timeDefault,mode=false}:T_component){
     const [elements,setElements]=useState<T_elements>({} as T_elements); 
     const [time,setTime]=useState<number>(timeOut===timeDefault? -1:timeOut);  
     time ===0 && setTimeout(()=>{nextPage({page:3,mode:true})},1000); 
+    /*eslint-disable */
     useEffect(()=>{  
         proposition.length===0   
           ?  fetch(link)
@@ -89,11 +90,11 @@ function Component({nextPage,timeOut=timeDefault,mode=false}:T_component){
               !elements.proposition
               ? 
                 <div className='skeleton skeleton-button'></div>
-              :(counter==proposition.length-1 && mode===false )
+              :(counter===proposition.length-1 && mode===false )
                 ?  <button className='btn btn-submit' onClick={handleSubmit} type='button'>Submit</button>
                     :  counter!==proposition.length-1 && <QuizButton   increament={increament}/>
               }
-              <button onClick={decreament} hidden={counter==0 ? true:false}  className='btn'>Back</button>
+              <button onClick={decreament} hidden={counter===0 ? true:false}  className='btn'>Back</button>
             </div>
          </div>
        </div>

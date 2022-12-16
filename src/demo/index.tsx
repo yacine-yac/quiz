@@ -1,5 +1,5 @@
 import React from "react";
-import "./index.css"; import {proposition} from '../components/propositionModel';
+import "./index.css"; 
 import { T_area } from "../Area";
 function Demo({nextPage}:{nextPage:React.Dispatch<React.SetStateAction<T_area>>}){
    const handleSubmit=()=>{nextPage({page:3});}

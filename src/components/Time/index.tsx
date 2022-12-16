@@ -1,13 +1,12 @@
- 
-import { T_area } from "../../Area";
-import React, {  useEffect, useState,memo } from "react";
+import React, {  useEffect,memo } from "react";
 import './index.css';
 function Time({setTime,time}:{setTime :React.Dispatch<React.SetStateAction<number>>,time:number}){
     const _formater=(r:number):string=>{
       const countMinut=Math.floor(r/60);
       const countSecond=Math.floor(r%60);
       return `${countMinut>0 ? countMinut >9? countMinut : "0"+countMinut : "00"}:${countSecond>0  ? countSecond>9 ? countSecond : "0"+countSecond : "00" }`;
-    };  
+    };
+    /*eslint-disable */  
     useEffect(()=>{ 
           const rf= setInterval(()=>{
             time >0 && setTime(prev=>prev-1);
