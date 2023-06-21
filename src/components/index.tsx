@@ -21,7 +21,7 @@ function Component({nextPage,timeOut=timeDefault,mode=false}:T_component){
     /*eslint-disable */
     useEffect(()=>{  
         proposition.length===0   
-          ?  fetch(link)
+          ?  fetch(link,{credentials:"include"})
                 .then(response=>{
                     response.json().then((dataRes)=>{ 
                          proposition.setAll(dataRes); 
