@@ -4,7 +4,7 @@ import './App.css';
 import './Global-style.css'
 import Start from './start';
 import Area from './Area';
-import ErrorBoundary from './Area/ErrorBoundary'; 
+import ErrorBoundary from './Area/ErrorBoundary';
 function App() {
   return (
   <>

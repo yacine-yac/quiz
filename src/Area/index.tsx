@@ -7,9 +7,11 @@ import {ResultModel} from '../result/modelResult';
 import { proposition } from '../components/propositionModel';
 import { useEffect, useState } from 'react';
 import {link} from "./const";
+import { useCookies } from 'react-cookie';
 export type T_area={page :1| 2|3 |4,time?:number,mode?:boolean};
 function Area(){ 
-      const [areaState,setAreaState]=useState<T_area>({page:1,time:undefined}); 
+      const [areaState,setAreaState]=useState<T_area>({page:1,time:undefined});
+        
       useEffect(()=>{   
          if(areaState.page===3){
             let dataPost=proposition.getCheckedPropositions();
@@ -19,8 +21,11 @@ function Area(){
                       ResultModel.call(res.information);
                       proposition.setTruthStatus(res.global); 
                       setAreaState(prev=>{return {...prev,page:4}})
+                      
+                   
+
                   }).catch(error=>{throw new Error(error)});
-           }).catch(error=>{ setAreaState(prev=>{throw Error('error fetched')})  }) 
+           }).catch(error=>{ setAreaState(prev=>{throw Error('error fetched')})  }); 
          }
       },[areaState.page]);
      return <>
