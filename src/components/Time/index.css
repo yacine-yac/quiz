@@ -1,39 +1,49 @@
 /* size by screen*/  
 /* Small devices (landscape phones, 576px and up) */   
 @media (max-width: 576px) {      
-     .box-time{ width: 20vw;height: 5vh;float: right;margin-top: 10px;margin-right: 10px;  }
+     .box-time{ width: 25vw;height: 8vh;float: right;margin-top: 10px;margin-right: 10px; }
+    .box-time div{width: 80%;height: 70%;}
   .box-time .p-time{ font-size: 0.8rem;height: 15px;}
 }   
 /* transition */  
 @media only screen and (min-width: 576px) {  
-   .box-time{ width: 15vw;height: 5vh;max-width: 105px;float: right;max-width: 118px;margin-top: 15px;margin-right: 15px;  }
+   .box-time{width: 15vw;height: 45px;margin: 5%;
+    float: right;}
+    .box-time div{width: 80%;height: 70%;}
   .box-time .p-time{ font-size: 0.8rem;height: 15px;}
 }   
 /* Medium devices (landscape tablets, 768px and up) */  
 @media only screen and (min-width: 768px) {  
-    .box-time{ border-radius: 50%; width: 10vw;height: 20vh;
-        margin-top: 10px;margin-right: 10px; 
+    .box-time{ border-radius: 50%; width: 26vw;height: 26vh;
+        max-width: 210px;
+        height: 170px;
+        margin-top: 10px;margin-right: 5%; 
         min-width:93px;min-height:115px ;
      }
+    .box-time div{ width: 85%;height: 85%;
+        border-radius: 50%; }
     .box-time .p-time{font-size: 1rem;}
 }  
 /* Large devices (laptops/desktops, 992px and up) */  
 @media only screen and (min-width: 992px) {  
-    .box-time{ border-radius: 50%; width: 15vw;height: 25vh;margin-right: 5vw;margin-top: 2vw; }
+    .box-time{ border-radius: 50%; width: 28vw;height: 28vh;
+       /* max-width: 295px; max-height: 183px; */
+        margin-right: 5vw;margin-top: 2vw; }
     .box-time .p-time{font-size: 0.9rem;}
 }  
 /* Extra large devices (large laptops and desktops, 1200px and up) */  
 @media only screen and (min-width: 1200px) {   
-    .box-time{background-color: red;  border-radius: 50%; width: 30vw;height: 20vh;margin-right: 5vw;margin-top: 2vw; }
-   
+    .box-time{background-color: red;  border-radius: 50%; width: 30vw;height: 30vh;margin-right: 5vw;margin-top: 2vw; }
+   .box-time .p-time{font-size: 0.7rem;}
 } 
-.box-time{
-     /* width: 10vw;height: 20vh; */
-    
-     border: 3px solid white;
-     background-color: var(--second-color);
-     /* margin-top: 10px;margin-right: 10px;   */
+.box-time{ 
+    background-color: #e44c65;
 }
+.box-time div{
+    /* width: 85%;height: 85%; */
+    /* border-radius: 50%;  */
+      background-color: var(--second-color); 
+    }
 .box-time .p-time{ 
     /* border: 1px solid red; */
     /* height:35%;  */

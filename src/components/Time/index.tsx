@@ -17,11 +17,13 @@ function Time({setTime,time}:{setTime :React.Dispatch<React.SetStateAction<numbe
     },[time]);
    
     return <>
-       <div className="box-time direction-r-t center"> 
-        { time >=0 
-            ?  <p className={ (time<5 && time!==0) ? "p-time alert-time" :"p-time" }>{_formater(time)}</p>
-            : <div className="skeleton skeleton-time"></div> 
-        } 
+       <div className="box-time direction-r-t center">
+            <div className="center"> 
+              { time >=0 
+                  ?  <p className={ (time<5 && time!==0) ? "p-time alert-time" :"p-time" }>{_formater(time)}</p>
+                  : <div className="skeleton skeleton-time"></div> 
+              } 
+            </div>
        </div>
     </>
 }

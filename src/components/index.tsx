@@ -56,11 +56,12 @@ function Component({nextPage,timeOut=timeDefault,mode=false}:T_component){
     },[counter]);
     const handleSubmit=()=>{nextPage({page:2,time});}
     return <>
-       {mode===false && <Time setTime={setTime} time={time} />}
-       <div className='box-quiz center-block'>
-         <div className="box-quiz-1 center-block">
-            { mode===true && <a role="button" onClick={()=>nextPage({page:3})} >Get Back</a> }
-            <div className="box-head">
+       {mode===false && <Time setTime={setTime} time={time} />} 
+      
+       <div className='box-quiz center-block'> 
+        { mode===true && <span><a role="button" onClick={()=>nextPage({page:3})} >Get Back</a></span> }
+        <div top-space={mode===true ? "true":"false" }  className="box-quiz-1 center-block">
+             <div className="box-head">
               {proposition.length>0 
                ? <h1>Qestion <span>{counter+1}/{proposition.length}</span></h1> 
               : <div className="skeleton skeleton-text-med  center-block"></div>}

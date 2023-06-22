@@ -9,7 +9,7 @@
    .box-body{width: 97%;height: 75%; } 
    .box-body h2{font-size: 0.9rem; margin-top: 0px;}
    .box-body ul{width: 100%;height:80%;}
-   .box-body ul li{width: 95%;height:5vh;margin:5px;max-height: 38px;}
+   .box-body ul li{width: 90%;height:5vh;margin:5px;max-height: 38px;}
    .box-body ul li:first-child{margin-top: 0;}
    .box-body ul li i{width: 55px;height: 5vh;max-height: 38px;}
    .box-body ul li label{font-size: 0.9rem;}
@@ -24,7 +24,7 @@
     .box-body{width: 98%;height: 65%; }  
     .box-body h2{font-size: 1rem;margin-top: 5px;}
     .box-body ul{width: 100%;height:80%;}
-    .box-body ul li{width: 70%;height:6vh;margin:5px;}  
+    .box-body ul li{width: 90%;height:6vh;margin:5px;}  
     .box-body ul li i{width: 55px;height: 6vh;}
     .box-body ul li label{font-size: 0.8rem;}
 }  
@@ -36,9 +36,9 @@
     .box-head{padding-bottom: 5px;}
     .box-head h1{ font-size: 1.6rem;}
     .box-head h1 span{font-size: 0.5em;}
-    .box-body{width: 98%;height: 80%; }  
+    .box-body{width: 98%;height: 80%; }
     .box-body h2{font-size: 0.9rem;}
-    .box-body ul li{width: 65%;height:6vh;margin-top:4px;}
+    .box-body ul li{width: 80%;height:6vh;margin-top:4px;}
     .box-body ul li i{width: 55px;height:6vh;}
     .box-body ul li label{font-size: 0.7rem;}
 }  
@@ -50,7 +50,7 @@
     .box-head h1 span{font-size: 0.4em;}
     .box-body h2{font-size: 0.8rem;margin-top: 0px;}
     .box-body ul{width: 100%;height:75%;}
-    .box-body ul li{width: 70%;height:6vh;margin:5px;}
+    .box-body ul li{width: 75%;height:6vh;margin:5px;}
     .box-body ul li i{width: 55px;height: 6vh;}
     .box-body ul li label{font-size: 0.6rem;}
 } 
@@ -69,7 +69,9 @@
 .box-quiz{  
     padding: 1%;
 }
-.box-quiz-1{  
+.box-quiz  > span {margin: 0;}
+.box-quiz-1[top-space='true']{margin: 0%;}
+.box-quiz-1{   
    padding: 1%; 
 }
 .box-head{ 
@@ -103,6 +105,7 @@
     display: flex; 
     cursor: pointer;
     color: var(--text-color-1);
+    border-top-right-radius: 35px;border-bottom-right-radius: 35px;
 }
 .box-body ul li:hover label{color: var(--text-color-1);transition: 0.6s ease;}
 .box-body ul li input{display:none;}

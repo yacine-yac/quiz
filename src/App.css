@@ -8,8 +8,7 @@
 
 /* transition */ 
 
-@media only screen and (min-width: 576px) {  .App{display: inline-block;}
-  /* .App{display:  flex;flex-direction:row-reverse ;}  */
+@media only screen and (min-width: 576px) {  .App{display:inline-block;} 
 }  
 
 /* Medium devices (landscape tablets, 768px and up) */ 

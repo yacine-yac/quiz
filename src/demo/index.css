@@ -15,8 +15,9 @@
  }
  /* transition */
  @media only screen and (min-width: 576px) { 
-    .box-1-1{
-        width: 75%;height: 70%;border: 2px solid white;
+    .box-1-1{position: absolute;
+        width: 80%;height: 30%;border: 2px solid white;margin: auto;
+        top: 0;left: 0;right: 0;bottom: 0;
      }
     .box-3{width: 90%;height: 45%;}
      .box-3 h1{
@@ -27,7 +28,7 @@
  /* Medium devices (landscape tablets, 768px and up) */
  @media only screen and (min-width: 768px) { 
     .box-1-1{
-        width: 150%;height: 70%; border: 2px solid white;
+        width: 70%;height: 30%; border: 2px solid white;
      }
      .box-3{width: 90%;height: 35%;}
      .box-3 h1{
@@ -38,7 +39,7 @@
  /* Large devices (laptops/desktops, 992px and up) */
  @media only screen and (min-width: 992px) {
     .box-1-1{
-        width: 150%;height: 65%; border: 2px solid white;
+        width: 55%;height: 35%; border: 2px solid white;
      }
      .box-3{width: 90%;height: 35%;}
      .box-3 h1{

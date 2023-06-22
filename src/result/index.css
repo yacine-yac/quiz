@@ -2,52 +2,55 @@
 
 /* Small devices (landscape phones, 576px and up) */  
 @media (max-width: 576px) {      
-    .box-4{
-        width: 90vw;height:75vh;max-width: 400px;border: 0px;
-       }
-       .box-4 a {margin: 8px;}
-       .circle{width: 45vw;height:45vw;max-width: 205px;max-height: 205px;}
-       .box-result{width: 100%;height: 45%;}
-       .box-result ul{width: 90%;height: 70%;text-align: center;}
-       .box-result ul li{font-size: 0.9rem;}
-    }  
-    
+            .box-4{ width: 95vw;height:75vh; border: 0px;}
+            .box-4 a {margin: 8px;}
+            .box-4 a svg{width: 7vw;height: 10vh;}
+            .box-result{width: 100%;height: 45%;}
+            .box-4 > span{top:0%;left: 0%; }
+            .box-result ul{width: 90%;height: 90%;text-align: center;}
+            .box-result ul li{font-size: 0.9rem;width: 48%;}
+            .progress-bar { width: 55%;  height: 55%;}
+
+    }
     /* transition */ 
     @media only screen and (min-width: 576px) {  
-        .box-4{
-            width: 75vw;height:60vh; 
-            border: 3px solid var(--text-color-1);
-           }
-    .box-4 a{margin: 8px;}
-    .circle{width: 30vw;height:30vw;max-width: 190px;max-height:190px;}
-    .box-result{width: 100%;height: 45%;}
-    .box-result ul{width: 90%;height: 55%;margin-left:5px; }
-    .box-result ul li{font-size: 0.8rem;} 
-}  
+            .box-4{  width: 85vw;height:75vh;    } 
+            .box-4 > span{top:3%;left: 0%; }
+            .box-4 a svg{width: 7vw;height: 5vh;}
+            .box-result{width: 100%;height: 70%;}
+            .box-result ul{width: 90%;height: 90%;margin-left:5px;  }
+            .box-result ul li{font-size: 0.8rem;width: 35%;}
+            .progress-bar { width: 45vw;  height: 60vw;}
 
-/* Medium devices (landscape tablets, 768px and up) */ 
-@media only screen and (min-width: 768px) { 
+    }  
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
     .box-4{
-        width: 65vw;height:60vh; 
+        width: 75vw;height:60vh;
         border: 3px solid var(--text-color-1);
     }
     .circle{width: 38vw;height:38vw;} 
-    .box-result ul li{font-size: 0.9rem;} 
     .box-4 a{margin: 4px;}
+    .box-4 > span{top:3%;left: 1.5%; }
+    .box-4 a svg{width: 5vw;height: 5vh;}
+    .box-result ul{width: 90%;height: 90%;margin-left:5px;  }
+    .box-result ul li{font-size: 0.8rem;width: 30%;}
+    .progress-bar { width: 30vw;  height: 45vw;}
 } 
 
 /* Large devices (laptops/desktops, 992px and up) */ 
 @media only screen and (min-width: 992px) {  
     .box-4{
-        width: 65vw;height:60vh; 
+        width: 65vw;height:65vh; 
         border: 3px solid var(--text-color-1);
     }
-    .circle{width:48vw;height:48vw;} 
-    .box-result ul li{font-size: 0.8rem;}
-} 
+    .box-4 a svg{width: 3vw;height: 10vh;}
+    .box-4 > span{top:1.5%;left: 1.5%; }
+    .box-result ul li{font-size: 0.7rem;width: 30%;height: auto;}
+    .progress-bar{ width: 22vw;  height: 85vw;}
 
- 
- 
+}
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */ 
 
@@ -59,33 +62,51 @@
  
 /*========================================================================================= */
 .box-4{ 
-    padding: 2%;  
+    padding: 5vh 1vw;  
     flex-direction: column;position: relative;
 }
-.box-4 a{position: absolute;top: 0px;}
-.circle{ 
-    min-height: 130px;min-width: 140px;
-    margin: 5px;
-    border-radius: 50%;
-    border: 3px solid var(--text-color-1);
-    text-align: center;
-    color: var(--text-color-1); 
-}
+.box-4 > span{position: absolute;}
+
 .box-result{ 
      border: 0px solid yellow; 
 }
 .box-result ul{ 
-    border: 0px solid rgb(38, 255, 0);  
+    border: 0px solid rgb(38, 255, 0);flex-direction: column;  
 }
-.box-result ul li{
-    color: var(--text-color-2);
+.box-result ul li{padding: 1%;
+    color: var(--text-color-1); 
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
     margin-top: 15px;border: 0px solid green;margin-left: 0px; 
     font-family: var(--style-text);
 }
+.box-result ul li:nth-child(1){background-color: #0ff16dd6;}
+.box-result ul li:nth-child(2){background-color: rgba(255, 0, 0, 0.85);}
+ 
+  .progress-bar { 
+    /* width: 25%;
+    height: 55%; */
+    border-radius: 50%;
 
-.succes{
-    color:#58D68D;border-color: #58D68D;
-}
-.wrong{
-    color:#E74C3C ;border-color:#E74C3C ;
-}
+    /* to center the percentage value */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .progress-bar::before {
+    counter-reset: percentage var(--progress-value);
+    color :var(--text-color-1);
+    content: counter(percentage) '%';
+  }
+  
+  .html {
+    background: 
+      radial-gradient(closest-side, var(--primary-color) 79%, transparent 80% 100%),
+      conic-gradient(#e44c65 calc(var(--progress-value) * 1%), white 0); 
+  }
+  progress {
+    visibility: hidden;
+    width: 0;
+    height: 0;
+  }

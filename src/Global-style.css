@@ -1,5 +1,6 @@
-:root{
-    --primary-color:#272833;
+:root{ 
+    --primary-color:#272b37;
+    /* --primary-color:#272833; */
     --second-color:#262630;
     --tertiary-color:#e44c65 ;
     --time-text:white;
@@ -11,7 +12,8 @@
     --text-color-2:rgba(255, 255, 255, 0.644);
     --text-color-3:rgba(213, 213, 213, 0.644);
     --text-active:rgb(62, 64, 68);
-    --style-text:sans-serif;
+    --style-text:sans-serif; 
+    --progress-value:0;  
 }
 /*==============================================================================================================*/
 /* size by screen*/
@@ -28,7 +30,7 @@
      /* .skeleton-i{width: 25px !important;height: 20px !important;} */
      .skeleton-text-big{width: 50vw;height:3vh;}
      .skeleton-text-med{ width: 30vw;height:4vh;border-radius: 0.5rem;}
-     li:last-child .skeleton-text{width: 45vw;}    
+     li:last-child .skeleton-text{width: 45vw;}  
 
  } 
   /* transition */

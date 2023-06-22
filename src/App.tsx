@@ -12,6 +12,7 @@ function App() {
     <div className="App">
       <Routes>
         <Route path="/" element={<Start />}/> 
+        {/* <Route path="/" element={<Start />}/>  */}
         <Route path="/quiz" element={<ErrorBoundary><Area /></ErrorBoundary>  }/> 
       </Routes> 
     </div>
