@@ -1,1 +1,1 @@
-export const link='http://192.168.1.132/qcm/app.php';
+export const link='https://kyeboard-typing.000webhostapp.com/app.php';
