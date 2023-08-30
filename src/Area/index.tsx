@@ -13,7 +13,7 @@ function Area(){
       useEffect(()=>{   
          if(areaState.page===3){
             let dataPost=proposition.getCheckedPropositions();
-            fetch(link,{method:"POST",body:JSON.stringify(dataPost)})
+            fetch(link,{method:"POST",body:JSON.stringify(dataPost),credentials:"include"})
             .then(response=>{
                   response.json().then(res=>{
                       ResultModel.call(res.information);
